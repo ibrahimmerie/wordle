@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from '@vue/reactivity';
+import { computed } from '@vue/reactivity'
 import { ref, onMounted, onBeforeMount } from 'vue'
-import { getWord } from '../utils'
+import { getWord, isValidWord } from '../utils'
 import Row from './Row.vue'
 
 const solution = getWord()
@@ -20,7 +20,6 @@ const currentWord = computed(() => gameState.value[currentRow.value])
 const validKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
   'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-const isValidWord = () => true
 
 const checkWord = () => {
   if (currentWord.value === solution) {
@@ -43,7 +42,7 @@ const onEnter = () => {
   console.log(currentWord.value)
 
   if (currentRow.value <= 5) {
-    if (!isValidWord()) { return }
+    if (!isValidWord(currentWord.value)) { return }
   }
 
   return checkWord()

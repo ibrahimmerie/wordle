@@ -1,14 +1,14 @@
-const words: string[] = [ 'APPLE', 'PLEAS', 'THEME', 'SANDY', 'RAINY', 'PHASE', 
-  'SPEAR', 'SPEND', 'SPELL', 'BEGIN', 'MELON', 'IRATE', 'SOUND', 'STEED', 'SCOUT',
-  'INLET', 'CLASH', 'LEAKY', 'DRAIN', 'WHISK', 'FOUND', 'THIGH', 'REIGN', 'BREAD',
-  'TEMPT', 'THYME', 'TRUCE', 'TWICE', 'GLOAT', 'APRON' ]
+import { gameWords, fiveLetterWords } from './words'
 
-export const getWord = (): string => { 
-  let index: number = Math.ceil(Math.random().toFixed(2) * 100)
-
-  while (index > words.length - 1) {
-    index = Math.ceil(Math.random().toFixed(2) * 100)
-  }
-
-  return words[index]
+const getRandomInt = (min: number, max: number) => {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
+
+export const getWord = (): string => {
+  const index = getRandomInt(0, gameWords.length)
+  return gameWords[index].toUpperCase()
+}
+
+export const isValidWord = (word: string): boolean => fiveLetterWords.includes(word.toLowerCase())
