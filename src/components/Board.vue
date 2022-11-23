@@ -1,16 +1,13 @@
 <template>
   <div class="grid grid-flow-row gap-2 p-4">
-    <Row v-for="(r, i) in rows" :key="r" :word="gameState[i]" />
+    <Row v-for="(r, i) in rows" :key="r" :word="gameState[i]" :isEntered="currentRow > i" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from '@vue/reactivity'
-import { ref, onMounted, onBeforeMount } from 'vue'
-import { getWord, isValidWord } from '../utils'
+import { ref, onMounted, onBeforeMount, computed } from 'vue'
+import { solution, isValidWord } from '../utils'
 import Row from './Row.vue'
-
-const solution = getWord()
 
 const rows = Array(6)
 const currentRow = ref<number>(0)
@@ -22,20 +19,11 @@ const validKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
 
 
 const checkWord = () => {
-  if (currentWord.value === solution) {
-    console.log('I LOVE EVERYWA')
+  if (currentWord.value === solution || currentRow.value === 5) {
     window.removeEventListener('keydown', onKeyDown)
-    window.prompt('YOU WON BRUH')
-    return
   }
 
-  if (currentRow.value === 5) {
-    window.prompt('YOU LOST BRUH, WORD WAS: ' + solution)
-    window.removeEventListener('keydown', onKeyDown)
-    return
-  } else {
-    currentRow.value++
-  }
+  currentRow.value++
 }
 
 const onEnter = () => {
