@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeMount, computed } from 'vue'
-import { solution } from '../utils'
+import { solution, isValidWord } from '../utils'
 import Row from './Row.vue'
 
 const rows = Array(6)
@@ -17,7 +17,6 @@ const currentWord = computed(() => gameState.value[currentRow.value])
 const validKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
   'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-const isValidWord = () => true
 
 const checkWord = () => {
   if (currentWord.value === solution || currentRow.value === 5) {
@@ -31,7 +30,7 @@ const onEnter = () => {
   console.log(currentWord.value)
 
   if (currentRow.value <= 5) {
-    if (!isValidWord()) { return }
+    if (!isValidWord(currentWord.value)) { return }
   }
 
   return checkWord()
