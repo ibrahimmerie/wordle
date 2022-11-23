@@ -6,9 +6,11 @@ const getRandomInt = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-export const getWord = (): string => {
+const getWord = (): string => {
   const index = getRandomInt(0, gameWords.length)
   return gameWords[index].toUpperCase()
 }
 
 export const isValidWord = (word: string): boolean => fiveLetterWords.includes(word.toLowerCase())
+
+export const solution = getWord()
