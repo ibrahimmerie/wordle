@@ -9,5 +9,6 @@
 </template>
 
 <script setup lang="ts">
+// SWAG
 import Board from './components/Board.vue'
 </script>
