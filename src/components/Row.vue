@@ -75,7 +75,7 @@ watch(() => props.invalidWord, (val) => {
   border-radius: 2px;
   transition: transform 1s;
   transform-style: preserve-3d;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
 }
 

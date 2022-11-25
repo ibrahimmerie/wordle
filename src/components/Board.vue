@@ -4,7 +4,7 @@
       v-model:invalidWord="invalidWords[i]" />
   </div>
 
-  <Modal v-model="showModal">
+  <Modal v-model="showModal" :delayed="true">
     {{ gameResult }}
   </Modal>
 </template>
@@ -33,7 +33,7 @@ const validKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
 
 const checkWord = () => {
   if (currentWord.value === solution) {
-    gameResult.value = 'Congratulations! You beat the game!'
+    gameResult.value = 'Congratulations, you win!'
     window.removeEventListener('keydown', onKeyDown)
     showModal.value = true
   } else if (currentRow.value === 5) {

@@ -23,7 +23,9 @@
     <div class="key" @click="onClick('L')" :style="keyBoardStyle['L']">L</div>
   </div>
   <div class="grid grid-cols-11 gap-2">
-    <div class="large-key col-span-2" @click="onClick('ENTER')" :style="{ backgroundColor: lightGrey }">ENTER</div>
+    <div class="col-span-2">
+      <div class="large-key float-right" @click="onClick('ENTER')" :style="{ backgroundColor: lightGrey }"> ENTER </div>
+    </div>
     <div class="key" @click="onClick('Z')" :style="keyBoardStyle['Z']">Z</div>
     <div class="key" @click="onClick('X')" :style="keyBoardStyle['X']">X</div>
     <div class="key" @click="onClick('C')" :style="keyBoardStyle['C']">C</div>
@@ -31,14 +33,18 @@
     <div class="key" @click="onClick('B')" :style="keyBoardStyle['B']">B</div>
     <div class="key" @click="onClick('N')" :style="keyBoardStyle['N']">N</div>
     <div class="key" @click="onClick('M')" :style="keyBoardStyle['M']">M</div>
-    <div class="large-key col-span-2" @click="onClick('BACKSPACE')" :style="{ backgroundColor: lightGrey }">BACKSPACE
+    <div class="col-span-2">
+      <div class="large-key p-4 float-left" @click="onClick('BACKSPACE')" :style="{ backgroundColor: lightGrey }">
+        <Delete />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { darkGrey, lightGrey, yellow, green, guessedLetters, solution } from '../utils'
+import { computed } from 'vue'
+import { darkGrey, lightGrey, yellow, green, guessedLetters } from '../utils'
+import Delete from '../components/icons/Delete.vue'
 
 const emits = defineEmits(['key-press'])
 
@@ -94,7 +100,7 @@ const keyBoardStyle = computed(() => {
 <style scoped>
 .key {
   width: 40px;
-  height: 55px;
+  height: 60px;
   display: flex;
   border-radius: 4px;
   font-size: 14px;
@@ -110,6 +116,8 @@ const keyBoardStyle = computed(() => {
 }
 
 .large-key {
+  width: 60px;
+  height: 60px;
   display: flex;
   border-radius: 4px;
   font-size: 12px;
