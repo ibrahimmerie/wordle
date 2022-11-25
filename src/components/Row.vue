@@ -1,8 +1,14 @@
 <template>
-  <div class="grid grid-cols-5 gap-2">
+  <div class="grid grid-cols-5 gap-1">
     <div v-for="(c, i) in Array(5)" :key="c" class="card" v-bind:class="{ flipme: isEntered }" :style="cardStyle[i]">
-      <div v-if="!isEntered" class="card-front" :style="cardStyleFront[i]">
-        {{ word[i] }}
+      <div v-if="!isEntered" class="flex w-full">
+        <transition name="bounce" mode="out-in">
+          <div v-if="word.length <= i" v-bind:class="{ shake: invalidWord }" class="card-front"
+            :style="cardStyleFront[i]">{{ word[i] }}</div>
+          <div v-else v-bind:class="{ shake: invalidWord }" class="card-front"
+            :style="{ width: '100%', border: `2px solid ${lightGrey}` }">{{ word[i] }}
+          </div>
+        </transition>
       </div>
       <div v-else class="card-back" :style="cardStyleBack[i]">
         {{ word[i] }}
@@ -12,35 +18,33 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed } from 'vue'
-import { solution } from '../utils'
+import { defineProps, computed, watch } from 'vue'
+import { solution, grey, yellow, green, darkGrey, lightGrey, showInfo } from '../utils'
 
-const props = defineProps<{ word: string, isEntered: boolean }>()
+const props = defineProps<{ word: string, isEntered: boolean, invalidWord: boolean }>()
 
-const grey = '#475569'
-const yellow = '#b59f3b'
-const green = '#538d4e'
+const emits = defineEmits(['update:invalidWord'])
 
-const getColor = (index: number) => {
+const getColor = (index: number): string => {
   if (solution[index] === props.word[index]) { return green }
   return solution.includes(props.word[index]) ? yellow : grey
 }
 
-const cardStyle = [
-  { transitionDelay: '0', backgroundColor: grey },
-  { transitionDelay: '100ms', backgroundColor: grey },
-  { transitionDelay: '200ms', backgroundColor: grey },
-  { transitionDelay: '300ms', backgroundColor: grey },
-  { transitionDelay: '400ms', backgroundColor: grey }
-]
+const cardStyle = computed(() => [
+  { transitionDelay: '0' },
+  { transitionDelay: '100ms' },
+  { transitionDelay: '200ms' },
+  { transitionDelay: '300ms' },
+  { transitionDelay: '400ms' }
+])
 
-const cardStyleFront = [
-  { backgroundColor: grey },
-  { backgroundColor: grey },
-  { backgroundColor: grey },
-  { backgroundColor: grey },
-  { backgroundColor: grey }
-]
+const cardStyleFront = computed(() => [
+  { backgroundColor: 'unset', border: `2px solid ${darkGrey}` },
+  { backgroundColor: 'unset', border: `2px solid ${darkGrey}` },
+  { backgroundColor: 'unset', border: `2px solid ${darkGrey}` },
+  { backgroundColor: 'unset', border: `2px solid ${darkGrey}` },
+  { backgroundColor: 'unset', border: `2px solid ${darkGrey}` }
+])
 
 const cardStyleBack = computed(() => {
   return [
@@ -52,17 +56,26 @@ const cardStyleBack = computed(() => {
   ]
 })
 
+watch(() => props.invalidWord, (val) => {
+  const msg = props.word.length === 5 ? 'Not in word list' : 'Not enough letters'
+  showInfo(msg)
+
+  setTimeout(() => {
+    emits('update:invalidWord', false)
+  }, 500)
+})
+
 </script>
 
 <style scoped>
 .card {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   display: flex;
   border-radius: 2px;
   transition: transform 1s;
   transform-style: preserve-3d;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -89,5 +102,58 @@ const cardStyleBack = computed(() => {
 
 .flipme {
   transform: rotateX(180deg);
+}
+
+
+.bounce-enter-active {
+  animation: bounce-in 0.1s;
+}
+
+.bounce-leave-active {
+  animation: bounce-in 0.1s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.shake {
+  animation: shake 0.25s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-5px);
+  }
+
+  40% {
+    transform: translateX(5px);
+  }
+
+  60% {
+    transform: translateX(-5px);
+  }
+
+  80% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 </style>
