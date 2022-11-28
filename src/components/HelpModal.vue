@@ -1,5 +1,5 @@
 <template>
-  <Modal v-model="show" :size="'lg'">
+  <Modal v-model="show">
     <strong class="text-2xl block">How To Play</strong>
 
     <div class="p-2">

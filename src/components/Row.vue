@@ -1,6 +1,8 @@
 <template>
   <div class="grid grid-cols-5 gap-1">
-    <div v-for="(c, i) in Array(5)" :key="c" class="card" v-bind:class="{ flipme: isEntered }" :style="cardStyle[i]">
+    <div v-for="(c, i) in Array(5)" :key="c"
+      class="card flex w-[50px] md:w-[65px] h-[50px] md:h-[65px] rounded-[2px] text-[20px] md:text-[30px]"
+      :class="{ flipme: isEntered }" :style="cardStyle[i]">
       <div v-if="!isEntered" class="flex w-full">
         <transition name="bounce" mode="out-in">
           <div v-if="word.length <= i" v-bind:class="{ shake: invalidWord }" class="card-front"
@@ -69,14 +71,9 @@ watch(() => props.invalidWord, (val) => {
 
 <style scoped>
 .card {
-  width: 65px;
-  height: 65px;
-  display: flex;
-  border-radius: 2px;
+  font-weight: bold;
   transition: transform 1s;
   transform-style: preserve-3d;
-  font-size: 30px;
-  font-weight: bold;
 }
 
 .card-front {

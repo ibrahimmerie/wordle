@@ -1,40 +1,68 @@
 <template>
   <div class="grid grid-cols-10 gap-2">
-    <div class="key" @click="onClick('Q')" :style="keyBoardStyle['Q']">Q</div>
-    <div class="key" @click="onClick('W')" :style="keyBoardStyle['W']">W</div>
-    <div class="key" @click="onClick('E')" :style="keyBoardStyle['E']">E</div>
-    <div class="key" @click="onClick('R')" :style="keyBoardStyle['R']">R</div>
-    <div class="key" @click="onClick('T')" :style="keyBoardStyle['T']">T</div>
-    <div class="key" @click="onClick('Y')" :style="keyBoardStyle['Y']">Y</div>
-    <div class="key" @click="onClick('U')" :style="keyBoardStyle['U']">U</div>
-    <div class="key" @click="onClick('I')" :style="keyBoardStyle['I']">I</div>
-    <div class="key" @click="onClick('O')" :style="keyBoardStyle['O']">O</div>
-    <div class="key" @click="onClick('P')" :style="keyBoardStyle['P']">P</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('Q')"
+      :style="keyBoardStyle['Q']">Q</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('W')"
+      :style="keyBoardStyle['W']">W</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('E')"
+      :style="keyBoardStyle['E']">E</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('R')"
+      :style="keyBoardStyle['R']">R</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('T')"
+      :style="keyBoardStyle['T']">T</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('Y')"
+      :style="keyBoardStyle['Y']">Y</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('U')"
+      :style="keyBoardStyle['U']">U</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('I')"
+      :style="keyBoardStyle['I']">I</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('O')"
+      :style="keyBoardStyle['O']">O</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('P')"
+      :style="keyBoardStyle['P']">P</div>
   </div>
   <div class="grid grid-cols-9 px-[3px] gap-2">
-    <div class="key" @click="onClick('A')" :style="keyBoardStyle['A']">A</div>
-    <div class="key" @click="onClick('S')" :style="keyBoardStyle['S']">S</div>
-    <div class="key" @click="onClick('D')" :style="keyBoardStyle['D']">D</div>
-    <div class="key" @click="onClick('F')" :style="keyBoardStyle['F']">F</div>
-    <div class="key" @click="onClick('G')" :style="keyBoardStyle['G']">G</div>
-    <div class="key" @click="onClick('H')" :style="keyBoardStyle['H']">H</div>
-    <div class="key" @click="onClick('J')" :style="keyBoardStyle['J']">J</div>
-    <div class="key" @click="onClick('K')" :style="keyBoardStyle['K']">K</div>
-    <div class="key" @click="onClick('L')" :style="keyBoardStyle['L']">L</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('A')"
+      :style="keyBoardStyle['A']">A</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('S')"
+      :style="keyBoardStyle['S']">S</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('D')"
+      :style="keyBoardStyle['D']">D</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('F')"
+      :style="keyBoardStyle['F']">F</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('G')"
+      :style="keyBoardStyle['G']">G</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('H')"
+      :style="keyBoardStyle['H']">H</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('J')"
+      :style="keyBoardStyle['J']">J</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('K')"
+      :style="keyBoardStyle['K']">K</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('L')"
+      :style="keyBoardStyle['L']">L</div>
   </div>
   <div class="grid grid-cols-11 gap-2">
     <div class="col-span-2">
-      <div class="large-key float-right" @click="onClick('ENTER')" :style="{ backgroundColor: lightGrey }"> ENTER </div>
+      <div class="key float-right w-[50px] md:w-[60px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]"
+        @click="onClick('ENTER')" :style="{ backgroundColor: lightGrey }"> ENTER </div>
     </div>
-    <div class="key" @click="onClick('Z')" :style="keyBoardStyle['Z']">Z</div>
-    <div class="key" @click="onClick('X')" :style="keyBoardStyle['X']">X</div>
-    <div class="key" @click="onClick('C')" :style="keyBoardStyle['C']">C</div>
-    <div class="key" @click="onClick('V')" :style="keyBoardStyle['V']">V</div>
-    <div class="key" @click="onClick('B')" :style="keyBoardStyle['B']">B</div>
-    <div class="key" @click="onClick('N')" :style="keyBoardStyle['N']">N</div>
-    <div class="key" @click="onClick('M')" :style="keyBoardStyle['M']">M</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('Z')"
+      :style="keyBoardStyle['Z']">Z</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('X')"
+      :style="keyBoardStyle['X']">X</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('C')"
+      :style="keyBoardStyle['C']">C</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('V')"
+      :style="keyBoardStyle['V']">V</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('B')"
+      :style="keyBoardStyle['B']">B</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('N')"
+      :style="keyBoardStyle['N']">N</div>
+    <div class="key w-[30px] md:w-[40px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]" @click="onClick('M')"
+      :style="keyBoardStyle['M']">M</div>
     <div class="col-span-2">
-      <div class="large-key p-4 float-left" @click="onClick('BACKSPACE')" :style="{ backgroundColor: lightGrey }">
+      <div class="key p-4 float-left w-[50px] md:w-[60px] h-[50px] md:h-[60px] text-[12px] md:text-[14px]"
+        @click="onClick('BACKSPACE')" :style="{ backgroundColor: lightGrey }">
         <Delete />
       </div>
     </div>
@@ -99,36 +127,15 @@ const keyBoardStyle = computed(() => {
 
 <style scoped>
 .key {
-  width: 40px;
-  height: 60px;
   display: flex;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 2px;
   font-weight: bold;
-  display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
 }
 
 .key:hover {
-  cursor: pointer;
-}
-
-.large-key {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-
-.large-key:hover {
   cursor: pointer;
 }
 </style>

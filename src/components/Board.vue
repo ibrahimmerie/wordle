@@ -4,7 +4,7 @@
       v-model:invalidWord="invalidWords[i]" />
   </div>
 
-  <Modal v-model="showModal" :delayed="true">
+  <Modal v-model="showModal" :delayed="true" :size="'sm'">
     {{ gameResult }}
   </Modal>
 </template>

@@ -1,7 +1,8 @@
 <template>
   <div class="grid grid-cols-5 gap-1">
-    <div v-for="(c, i) in Array(5)" :key="c" class="card" v-bind:class="{ flipme: isEntered && flipIndex === i }"
-      :style="cardStyle[i]">
+    <div v-for="(c, i) in Array(5)" :key="c"
+      class="card flex w-[30px] md:w-[50px] h-[30px] md:h-[50px] text-[20px] md:text-[30px] rounded-[2px]"
+      v-bind:class="{ flipme: isEntered && flipIndex === i }" :style="cardStyle[i]">
       <div v-if="flipIndex !== i || !isEntered" class="flex w-full">
         <div class="card-front" :style="cardStyleFront[i]">{{ word[i] }}</div>
       </div>
@@ -53,13 +54,8 @@ const cardStyleBack = computed(() => {
 
 <style scoped>
 .card {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  border-radius: 2px;
   transition: transform 1s;
   transform-style: preserve-3d;
-  font-size: 30px;
   font-weight: bold;
 }
 
@@ -70,7 +66,6 @@ const cardStyleBack = computed(() => {
   align-content: center;
   align-items: center;
   border-radius: 2px;
-  backface-visibility: hidden;
 }
 
 .card-back {
@@ -85,6 +80,7 @@ const cardStyleBack = computed(() => {
 }
 
 .flipme {
+  backface-visibility: hidden;
   transform: rotateX(180deg);
 }
 </style>
