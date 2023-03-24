@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeMount, computed, watch } from 'vue'
+import { ref, onMounted, computed, watch, onBeforeUnmount } from 'vue'
 import { solution, isValidWord, addToGuesses } from '../utils'
 import Row from './Row.vue'
 import Modal from './Modal.vue'
@@ -104,7 +104,7 @@ onMounted(() => {
   window.addEventListener('keydown', onKeyDown)
 })
 
-onBeforeMount(() => {
+onBeforeUnmount(() => {
   window.removeEventListener('keydown', onKeyDown)
 })
 
